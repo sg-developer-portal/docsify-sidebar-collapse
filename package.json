@@ -1,5 +1,5 @@
 {
-  "name": "docsify-sidebar-collapse",
+  "name": "@lx0f/docsify-sidebar-collapse",
   "version": "1.0.0",
   "description": "A docsify plugin for a collapsible sidebar!",
   "scripts": {
@@ -14,6 +14,7 @@
       "type": "git",
       "url": "https://github.com/lx0f/docsify-sidebar-collapse"
   },
+  "files": ["dist/"],
   "license": "GPL-3.0",
   "devDependencies": {
     "css-loader": "^6.7.4",
