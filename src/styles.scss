@@ -1,0 +1,73 @@
+:root {
+  /* imported from docsify-themeable */
+  --sidebar-nav-pagelink-background: no-repeat 2px calc(50% - 2.5px) / 6px 5px linear-gradient(45deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4px), no-repeat 2px calc(50% + 2.5px) / 6px 5px linear-gradient(135deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4px);
+  --sidebar-nav-pagelink-background--active: no-repeat 0px center / 5px 6px linear-gradient(225deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4.25px), no-repeat 5px center / 5px 6px linear-gradient(135deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4.25px);
+  --sidebar-nav-pagelink-background--collapse: no-repeat 2px calc(50% - 2.5px) / 6px 5px linear-gradient(45deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4px), no-repeat 2px calc(50% + 2.5px) / 6px 5px linear-gradient(135deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4px);
+  --sidebar-nav-pagelink-background--loaded: no-repeat 0px center / 5px 6px linear-gradient(225deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4.25px), no-repeat 5px center / 5px 6px linear-gradient(135deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4.25px);
+  --sidebar-nav-pagelink-padding: 0.25em 0 0.25em 20px;
+}
+
+/* override docsify-themeable default chevron */
+.sidebar-nav li>a[href^="/"]:not([href*="?id="]):only-child,
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]):only-child {
+  background: none;
+}
+
+.sidebar > .sidebar-nav > ul {
+  /* Remove margin from p in li */
+  li p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li:has(p) {
+    cursor: pointer;
+  }
+
+  /* Collapse all list by default */
+  ul {
+    display: none;
+  }
+
+  li:has(> ul) {
+    /* All a, p in li with nested ul should have chevron */
+    > a {
+      background: var(--sidebar-nav-pagelink-background);
+    }
+
+    > p {
+      background: var(--sidebar-nav-pagelink-background);
+      padding: var(--sidebar-nav-pagelink-padding);
+    }
+
+    /* Loaded li should have loaded chevron and display list */
+    &.loaded {
+      > p, > a {
+        background: var(--sidebar-nav-pagelink-background--loaded) !important;
+      }
+      > ul {
+        display: block;
+      }
+    }
+
+    /* if linkFolder and not active, default chevron */
+    &:not(.active):not(.loaded) {
+      > a {
+        /* override docsify-themable */
+        background: var(--sidebar-nav-pagelink-background) !important;
+      }
+    }
+
+    /* if not .collapse and is .active, show list */
+    &.active:not(.collapse) {
+      > a {
+        background: var(--sidebar-nav-pagelink-background--active);
+      }
+      > ul {
+        display: block;
+      }
+    }
+
+  }
+}
+
