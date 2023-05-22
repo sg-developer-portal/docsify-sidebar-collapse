@@ -47,7 +47,7 @@ function main(vm) {
 
     // Set active link
     const path = vm.route.path;
-    const activeEl = sidebar.querySelector(`*:has(> a[href='#${path}'])`);
+    const activeEl = sidebar.querySelector(`*:has(> a[href*='${path}'])`);
     activeEl.classList.add('active');
 
     // Uncollapse tree with active link
