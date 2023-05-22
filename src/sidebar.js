@@ -72,9 +72,11 @@ function main(vm) {
 }
 
 export function install(hook, vm) {
-    vm.config.subMaxLevel = 0;
-    hook.doneEach(function() {
-        main(vm);
-    });
+    if (vm.config.noTOCInSidebar) {
+        vm.config.subMaxLevel = 0;
+        hook.doneEach(function() {
+            main(vm);
+        });
+    }
 }
 
