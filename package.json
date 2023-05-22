@@ -1,6 +1,6 @@
 {
   "name": "@lx0f/docsify-sidebar-collapse",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A docsify plugin for a collapsible sidebar!",
   "scripts": {
     "build:dev": "webpack --mode development",
