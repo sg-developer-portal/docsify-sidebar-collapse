@@ -53,9 +53,9 @@ function main(vm) {
     // Uncollapse tree with active link
     sidebar.querySelectorAll('li:has(li.active)').forEach(el => {
         if (el.matches('li:has(> a)') && !el.classList.contains('active')) {
-            el.classList.toggle('loaded');
+            el.classList.add('loaded');
         } else if (el.matches('li:has(> p)')) {
-            el.classList.toggle('loaded');
+            el.classList.add('loaded');
         }
     });
 
@@ -64,7 +64,7 @@ function main(vm) {
     const observer = new MutationObserver(mutList => {
         mutList.forEach(mut => {
             if (mut.type === 'attributes' && !activeEl.classList.contains('active')) {
-                activeEl.classList.toggle('active');
+                activeEl.classList.add('active');
             }
         });
     });
@@ -75,7 +75,16 @@ export function install(hook, vm) {
     if (vm.config.enableSidebarCollapse) {
         vm.config.subMaxLevel = 0;
         hook.doneEach(function() {
-            main(vm);
+            // Watch for sidebar
+            const observer = new MutationObserver(() => {
+                const sidebar = document.querySelector('.sidebar > .sidebar-nav > ul');
+                // Execute main after sidebar has been loaded into DOM
+                if (sidebar) {
+                    observer.disconnect();
+                    main(vm);
+                }
+            });
+            observer.observe(document.documentElement, { childList: true, subtree: true });
         });
     }
 }
