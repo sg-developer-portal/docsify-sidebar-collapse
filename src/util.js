@@ -12,12 +12,17 @@ export function toggleLoaded(e) {
 
 export function onChevronClick(e) {
     const node = e.target;
+    const liEl = node.parentElement;
     const clickX = e.clientX - node.getBoundingClientRect().left;
     const paddingLeft = parseInt(getComputedStyle(node).paddingLeft);
     if (clickX <= paddingLeft) {
         e.preventDefault();
         e.stopPropagation();
-        node.parentElement.classList.toggle('loaded');
+        if (liEl.classList.contains('active')) {
+            liEl.classList.toggle('collapse');
+        } else {
+            liEl.classList.toggle('loaded');
+        }
     }
 }
 
