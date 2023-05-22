@@ -1,4 +1,4 @@
-import { toggleLoaded, toggleCollapse, onChevronClick } from './util.js';
+import { toggleLoaded, onChevronClick } from './util.js';
 
 // Main function
 function main(vm) {
@@ -40,9 +40,7 @@ function main(vm) {
     // LinkFolders
     sidebar.querySelectorAll('li:has(> a + ul)').forEach(el => {
         const aEl = el.firstElementChild;
-        el.classList.contains('active')
-            ? el.addEventListener('click', toggleCollapse)
-            : aEl.addEventListener('click', onChevronClick);
+        aEl.addEventListener('click', onChevronClick);
     });
 
     // Set active link

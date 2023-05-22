@@ -1,9 +1,3 @@
-export function toggleCollapse(e) {
-    e.stopPropagation();
-    const node = e.currentTarget;
-    node.classList.toggle("collapse");
-}
-
 export function toggleLoaded(e) {
     e.stopPropagation();
     const node = e.currentTarget;
