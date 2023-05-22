@@ -2,7 +2,7 @@
 
 > !! This plugin depends on the [docsify-themeable plugin](https://github.com/jhildenbiddle/docsify-themeable) !!
 
-> !! The sidebar will no longer contain the page's TOC, take a look at Ducksss awesome [docsify TOC plugin](https://github.com/sg-developer-portal/docsify-toc-plugin) instead !!
+> !! The sidebar will no longer contain the page's TOC as the subMaxLevel value will be overridden to 0, take a look at Ducksss awesome [docsify TOC plugin](https://github.com/sg-developer-portal/docsify-toc-plugin) instead !!
 
 ## Usage
 
@@ -26,7 +26,7 @@
     <!-- docsify-themeable -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
     <!-- docsify-sidebar-collapse -->
-    <script src="https://unpkg.com/@lx0f/docsify-sidebar-collapse@latest/dist/docsify-sidebar-collapse.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lx0f/docsify-sidebar-collapse@latest/dist/docsify-sidebar-collapse.bundle.js"></script>
 </body>
 ```
 
