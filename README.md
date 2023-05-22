@@ -26,7 +26,7 @@
     <!-- docsify-themeable -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
     <!-- docsify-sidebar-collapse -->
-    <script src="https://idkyet.com"></script>
+    <script src="https://unpkg.com/@lx0f/docsify-sidebar-collapse@latest/dist/docsify-sidebar-collapse.bundle.js"></script>
 </body>
 ```
 
