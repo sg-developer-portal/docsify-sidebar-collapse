@@ -72,7 +72,7 @@ function main(vm) {
 }
 
 export function install(hook, vm) {
-    if (vm.config.noTOCInSidebar) {
+    if (vm.config.enableSidebarCollapse) {
         vm.config.subMaxLevel = 0;
         hook.doneEach(function() {
             main(vm);
