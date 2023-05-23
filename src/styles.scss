@@ -13,7 +13,19 @@
   background: none;
 }
 
+.sidebar > .sidebar-nav > p {
+  font-weight: 600;
+  font-size: 1rem;
+  &:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+}
+
 .sidebar > .sidebar-nav > ul {
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
   /* Remove margin from p in li */
   li p {
     margin-top: 0;

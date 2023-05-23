@@ -2,7 +2,7 @@ import { toggleLoaded, onChevronClick } from './util.js';
 
 // Main function
 function main(vm) {
-    const sidebar = document.querySelector('.sidebar > .sidebar-nav > ul');
+    const sidebar = document.querySelector('.sidebar > .sidebar-nav');
 
     // Normalize Sidebar
     // Remove 'p' between 'li' and 'a'
