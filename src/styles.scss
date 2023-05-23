@@ -24,6 +24,10 @@
     cursor: pointer;
   }
 
+  li li > p {
+    margin-left: -20px;
+  }
+
   /* Collapse all list by default */
   ul {
     display: none;
@@ -31,8 +35,10 @@
 
   li:has(> ul) {
     /* All a, p in li with nested ul should have chevron */
-    > a, > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
-      background: var(--sidebar-nav-pagelink-background);
+    &:not(.active) { 
+      > a, > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
+        background: var(--sidebar-nav-pagelink-background);
+      }
     }
 
     > p {
@@ -67,7 +73,6 @@
         display: block;
       }
     }
-
   }
 }
 
