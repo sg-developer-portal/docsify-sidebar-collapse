@@ -31,7 +31,7 @@
 
   li:has(> ul) {
     /* All a, p in li with nested ul should have chevron */
-    > a {
+    > a, > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
       background: var(--sidebar-nav-pagelink-background);
     }
 
@@ -60,7 +60,7 @@
 
     /* if not .collapse and is .active, show list */
     &.active:not(.collapse) {
-      > a {
+      > a, > a[href^="#/"]:not([href*="?id="]):not(:only-child) {
         background: var(--sidebar-nav-pagelink-background--active);
       }
       > ul {
