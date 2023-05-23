@@ -1,4 +1,7 @@
 export function toggleLoaded(e) {
+    if (e.target.matches('a')) {
+        return;
+    }
     e.stopPropagation();
     const node = e.currentTarget;
     node.classList.toggle("loaded");
