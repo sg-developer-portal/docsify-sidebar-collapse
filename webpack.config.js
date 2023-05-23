@@ -11,6 +11,18 @@ const config = {
     path: resolve(__dirname, 'dist'),
     filename: 'docsify-sidebar-collapse.bundle.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  }
 };
 
 export default config;
