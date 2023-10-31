@@ -45,7 +45,7 @@ function main(vm) {
 
     // Set active link
     const path = vm.route.path;
-    const activeEl = sidebar.querySelector(`*:has(> a[href*='${path}'])`);
+    const activeEl = sidebar.querySelector(`li:has(> a[href='${path}'])`);
     activeEl.classList.add('active');
 
     // Uncollapse tree with active link
@@ -72,7 +72,7 @@ function main(vm) {
 export function install(hook, vm) {
     if (vm.config.enableSidebarCollapse) {
         vm.config.subMaxLevel = 0;
-        hook.doneEach(function() {
+        hook.doneEach(function () {
             // Watch for sidebar
             const observer = new MutationObserver(() => {
                 const sidebar = document.querySelector('.sidebar > .sidebar-nav > ul');
