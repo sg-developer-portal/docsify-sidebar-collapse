@@ -1,0 +1,103 @@
+[
+    {
+        "text": "Getting started",
+        "children": [
+            {
+                "text": "Quick start",
+                "link": "#/quickstart"
+            },
+            {
+                "text": "Writing more pages",
+                "link": "#/more-pages"
+            },
+            {
+                "text": "Custom navbar",
+                "link": "#/custom-navbar"
+            },
+            {
+                "text": "Cover page",
+                "link": "#/cover"
+            }
+        ]
+    },
+    {
+        "text": "Customization",
+        "children": [
+            {
+                "text": "Configuration",
+                "link": "#/configuration"
+            },
+            {
+                "text": "Themes",
+                "link": "#/themes"
+            },
+            {
+                "text": "List of Plugins",
+                "link": "#/plugins"
+            },
+            {
+                "text": "Write a Plugin",
+                "link": "#/write-a-plugin"
+            },
+            {
+                "text": "Markdown configuration",
+                "link": "#/markdown"
+            },
+            {
+                "text": "Language highlighting",
+                "link": "#/language-highlight"
+            },
+            {
+                "text": "Emoji",
+                "link": "#/emoji"
+            }
+        ]
+    },
+    {
+        "text": "Guide",
+        "children": [
+            {
+                "text": "Deploy",
+                "link": "#/deploy"
+            },
+            {
+                "text": "Helpers",
+                "link": "#/helpers"
+            },
+            {
+                "text": "Vue compatibility",
+                "link": "#/vue"
+            },
+            {
+                "text": "CDN",
+                "link": "#/cdn"
+            },
+            {
+                "text": "Offline Mode (PWA)",
+                "link": "#/pwa"
+            },
+            {
+                "text": "Embed Files",
+                "link": "#/embed-files"
+            }
+        ]
+    },
+    {
+        "text": "Awesome docsify",
+        "children": [
+            {
+                "text": "Awesome docsify",
+                "link": "#/awesome"
+            }
+        ]
+    },
+    {
+        "text": "Changelog",
+        "children": [
+            {
+                "text": "Changelog",
+                "link": "#/changelog"
+            }
+        ]
+    }
+]

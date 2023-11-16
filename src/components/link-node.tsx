@@ -3,6 +3,7 @@ import { useState } from "preact/hooks";
 import clsx from "clsx";
 import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
+import useUrlChange from "../hooks/useUrlChange";
 
 type LinkNodeProps = LinkNode;
 
@@ -12,13 +13,24 @@ export default function LinkNode({
   style,
   children,
 }: LinkNodeProps) {
-  const hasActive = children
-    ? hasActiveChild(window.location.pathname, children)
-    : false;
-  const isActive = window.location.pathname.endsWith(`/${link}`);
-
+  const _hasActive = (url: string) =>
+    children ? hasActiveChild(url, children) : false;
+  const _isActive = (url: string) => url.endsWith(`${link}`);
+  const [hasActive, setHasActive] = useState(_hasActive(window.location.href));
+  const [isActive, setIsActive] = useState(_isActive(window.location.href));
   const [show, setShow] = useState(hasActive || isActive);
   const toggleShow = () => setShow((prev) => !prev);
+
+  useUrlChange((url) => {
+    setHasActive((prev) => {
+      const ha = _hasActive(url);
+      if (ha !== prev && !ha) {
+        setShow(false);
+      }
+      return ha;
+    });
+    setIsActive(_isActive(url));
+  });
 
   return (
     <div>
@@ -31,7 +43,7 @@ export default function LinkNode({
       >
         <a
           className={clsx("link", style)}
-          href={`/${link}`}
+          href={`${link}`}
           onClick={toggleShow}
         >
           {text}

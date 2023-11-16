@@ -37,7 +37,7 @@ export const isSectionNode = (obj: any): obj is SectionNode => {
 export function hasActiveChild(url: string, children: Nodes): boolean {
   for (const node of children) {
     if (isLinkNode(node)) {
-      if (url.endsWith(`/${node.link}`)) {
+      if (url.endsWith(`${node.link}`)) {
         return true;
       }
       if (node.children) {

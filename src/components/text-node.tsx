@@ -3,16 +3,27 @@ import { useState } from "preact/hooks";
 import clsx from "clsx";
 import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
+import useUrlChange from "../hooks/useUrlChange";
 
 type TextNodeProps = TextNode;
 
 export default function TextNode({ text, children, style }: TextNodeProps) {
-  const hasActive = children
-    ? hasActiveChild(window.location.pathname, children)
-    : false;
-
+  const _hasActive = (url: string) =>
+    children ? hasActiveChild(url, children) : false;
+  const [hasActive, setHasActive] = useState(_hasActive(window.location.href));
   const [show, setShow] = useState(hasActive);
   const toggleShow = () => setShow((prev) => !prev);
+
+  useUrlChange((url) => {
+    setHasActive((prev) => {
+      const ha = _hasActive(url);
+      if (ha !== prev && !ha) {
+        setShow(false);
+      }
+      return ha;
+    });
+  });
+
   return (
     <div>
       <div className={clsx("node", hasActive && "has-active")}>

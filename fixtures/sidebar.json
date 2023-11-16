@@ -4,23 +4,23 @@
         "children": [
             {
                 "text": "Overview",
-                "link": "overview"
+                "link": "#/overview"
             },
             {
                 "text": "Advanced Features",
-                "link": "advanced-features",
+                "link": "#/advanced-features",
                 "children": [
                     {
                         "text": "Table of Contents Plugin",
-                        "link": "advanced-features/table-of-contents-plugin",
+                        "link": "#/advanced-features/table-of-contents-plugin",
                         "children": [
                             {
                                 "text": "Install",
-                                "link": "advanced-features/table-of-contents-plugin/install"
+                                "link": "#/advanced-features/table-of-contents-plugin/install"
                             },
                             {
                                 "text": "Usage",
-                                "link": "advanced-features/table-of-contents-plugin/usage"
+                                "link": "#/advanced-features/table-of-contents-plugin/usage"
                             }
                         ]
                     },
@@ -29,11 +29,11 @@
                         "children": [
                             {
                                 "text": "Install",
-                                "link": "advanced-features/sidebar-plugin/install"
+                                "link": "#/advanced-features/sidebar-plugin/install"
                             },
                             {
                                 "text": "Usage",
-                                "link": "advanced-features/sidebar-plugin/usage"
+                                "link": "#/advanced-features/sidebar-plugin/usage"
                             }
                         ]
                     }
@@ -41,7 +41,7 @@
             },
             {
                 "text": "Feedback",
-                "link": "feedback"
+                "link": "#/feedback"
             }
         ]
     },
@@ -50,18 +50,18 @@
         "children": [
             {
                 "text": "Basic Bow",
-                "link": "basic-stance"
+                "link": "#/basic-stance"
             },
             {
                 "text": "The Respectful Twirl",
-                "link": "respectful-twirl"
+                "link": "#/respectful-twirl"
             },
             {
                 "text": "Top Secret Move",
                 "children": [
                     {
                         "text": "backflip.",
-                        "link": "secret/backflip"
+                        "link": "#/secret/backflip"
                     }
                 ]
             }
