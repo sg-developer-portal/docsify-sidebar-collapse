@@ -1,4 +1,4 @@
-import { type TextNode } from "../core/node";
+import { hasActiveChild, type TextNode } from "../core/node";
 import { useState } from "preact/hooks";
 import clsx from "clsx";
 import TreeNode from "./tree";
@@ -7,11 +7,15 @@ import chevron from "../assets/chevron.png";
 type TextNodeProps = TextNode;
 
 export default function TextNode({ text, children, style }: TextNodeProps) {
-  const [show, setShow] = useState(false);
+  const hasActive = children
+    ? hasActiveChild(window.location.pathname, children)
+    : false;
+
+  const [show, setShow] = useState(hasActive);
   const toggleShow = () => setShow((prev) => !prev);
   return (
     <div>
-      <div className="node">
+      <div className={clsx("node", hasActive && "has-active")}>
         <p className={clsx("text", style)} onClick={toggleShow}>
           {text}
         </p>

@@ -1,22 +1,39 @@
-import { type LinkNode } from "../core/node";
+import { type LinkNode, hasActiveChild } from "../core/node";
 import { useState } from "preact/hooks";
 import clsx from "clsx";
 import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
 
 type LinkNodeProps = LinkNode;
+
 export default function LinkNode({
   link,
   text,
   style,
   children,
 }: LinkNodeProps) {
-  const [show, setShow] = useState(false);
+  const hasActive = children
+    ? hasActiveChild(window.location.pathname, children)
+    : false;
+  const isActive = window.location.pathname.endsWith(`/${link}`);
+
+  const [show, setShow] = useState(hasActive || isActive);
   const toggleShow = () => setShow((prev) => !prev);
+
   return (
     <div>
-      <div className="node">
-        <a className={clsx("link", style)} href={link} onClick={toggleShow}>
+      <div
+        className={clsx(
+          "node",
+          isActive && "active",
+          hasActive && "has-active"
+        )}
+      >
+        <a
+          className={clsx("link", style)}
+          href={`/${link}`}
+          onClick={toggleShow}
+        >
           {text}
         </a>
         {children && (

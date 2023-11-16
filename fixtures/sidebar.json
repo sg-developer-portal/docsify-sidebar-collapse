@@ -1,109 +1,67 @@
 [
     {
-        "text": "hello there",
-        "style": [
-            "bold"
-        ]
-    },
-    {
-        "text": "hello there",
-        "style": [
-            "italic"
-        ]
-    },
-    {
-        "text": "hello there",
-        "style": [
-            "bold",
-            "italic"
-        ]
-    },
-    {
-        "text": "this is a link",
-        "link": "https://youtube.com",
-        "style": [
-            "italic"
-        ]
-    },
-    {
-        "section": "Section Name",
+        "section": "Developer Guide",
         "children": [
             {
-                "text": "hello there"
+                "text": "Overview",
+                "link": "overview"
             },
             {
-                "text": "this is a link",
-                "link": "https://youtube.com"
-            },
-            {
-                "section": "Section Name",
+                "text": "Advanced Features",
+                "link": "advanced-features",
                 "children": [
                     {
-                        "text": "hello there"
+                        "text": "Table of Contents Plugin",
+                        "link": "advanced-features/table-of-contents-plugin",
+                        "children": [
+                            {
+                                "text": "Install",
+                                "link": "advanced-features/table-of-contents-plugin/install"
+                            },
+                            {
+                                "text": "Usage",
+                                "link": "advanced-features/table-of-contents-plugin/usage"
+                            }
+                        ]
                     },
                     {
-                        "text": "this is a link",
-                        "link": "https://youtube.com"
+                        "text": "Sidebar Plugin",
+                        "children": [
+                            {
+                                "text": "Install",
+                                "link": "advanced-features/sidebar-plugin/install"
+                            },
+                            {
+                                "text": "Usage",
+                                "link": "advanced-features/sidebar-plugin/usage"
+                            }
+                        ]
                     }
                 ]
+            },
+            {
+                "text": "Feedback",
+                "link": "feedback"
             }
         ]
     },
     {
-        "text": "this is a header",
-        "link": "https://youtube.com",
+        "section": "Dancing Etiqutte",
         "children": [
             {
-                "text": "this is a child"
+                "text": "Basic Bow",
+                "link": "basic-stance"
             },
             {
-                "text": "this is a header",
+                "text": "The Respectful Twirl",
+                "link": "respectful-twirl"
+            },
+            {
+                "text": "Top Secret Move",
                 "children": [
                     {
-                        "text": "this is a child",
-                        "link": "https://youtube.com"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "text": "this is a header",
-        "link": "https://youtube.com",
-        "children": [
-            {
-                "text": "this is a child"
-            },
-            {
-                "text": "this is a header",
-                "children": [
-                    {
-                        "text": "this is a child",
-                        "link": "https://youtube.com"
-                    }
-                ]
-            },
-            {
-                "text": "this is a child"
-            },
-            {
-                "text": "this is a header",
-                "children": [
-                    {
-                        "text": "this is a child",
-                        "link": "https://youtube.com"
-                    }
-                ]
-            },
-            {
-                "text": "this is a child"
-            },
-            {
-                "text": "this is a header",
-                "children": [
-                    {
-                        "text": "this is a child",
-                        "link": "https://youtube.com"
+                        "text": "backflip.",
+                        "link": "secret/backflip"
                     }
                 ]
             }

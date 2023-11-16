@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
+    "marked": "^10.0.0",
     "preact": "^10.16.0"
   },
   "devDependencies": {

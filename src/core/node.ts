@@ -34,6 +34,24 @@ export const isSectionNode = (obj: any): obj is SectionNode => {
   return false;
 };
 
+export function hasActiveChild(url: string, children: Nodes): boolean {
+  for (const node of children) {
+    if (isLinkNode(node)) {
+      if (url.endsWith(`/${node.link}`)) {
+        return true;
+      }
+      if (node.children) {
+        if (hasActiveChild(url, node.children)) return true;
+      }
+    } else if (isTextNode(node)) {
+      if (node.children) {
+        if (hasActiveChild(url, node.children)) return true;
+      }
+    }
+  }
+  return false;
+}
+
 export type Node = TextNode | LinkNode | SectionNode;
 
 export type Nodes = Node[];
