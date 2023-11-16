@@ -4,25 +4,50 @@ p {
 
 #sidebar {
     padding: 5rem;
+    background-color: rgb(246, 246, 246);
 }
 
 .children {
-    display: none;
+    overflow: hidden;
+    margin-left: .5rem;
+    max-height: 0;
+    transition: max-height .2s;
 }
 
 .children.show {
-    display: block;
-    margin-left: 1rem;
+    max-height: 100vh;
+    transition: max-height 1s;
 }
 
 .link, .text {
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    width: 100%;
 }
 
-.text:hover, .link:hover {
+.chevron {
+    padding: .5rem .75rem;
+}
+
+.chevron-icon {
+    transition: transform .3s;
+}
+
+.chevron-icon.show {
+    transform: rotate(90deg);
+}
+
+.chevron:hover {
     background-color: rgba($color: #000000, $alpha: .1);
+}
+
+.node {
+    display: flex;
+    align-items: center;
+    border-radius: .25rem;
+}
+
+.node:hover {
+    background-color: rgba($color: #000000, $alpha: .1);
+    cursor:pointer;
 }
