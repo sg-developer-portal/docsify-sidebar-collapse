@@ -1,26 +1,20 @@
-import { isLinkNode, type Node } from "../core/node";
+import { type TextNode } from "../core/node";
 import { useState } from "preact/hooks";
 import clsx from "clsx";
 import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
 
-type NodeProps = Node;
-export default function Node(props: NodeProps) {
+type TextNodeProps = TextNode;
+export default function TextNode({ text, children }: TextNodeProps) {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
   return (
     <div>
       <div className="node">
-        {isLinkNode(props) ? (
-          <a className="link" href={props.link} onClick={toggleShow}>
-            {props.text}
-          </a>
-        ) : (
-          <span className="text" onClick={toggleShow}>
-            {props.text}
-          </span>
-        )}
-        {props.children && (
+        <p className="text" onClick={toggleShow}>
+          {text}
+        </p>
+        {children && (
           <div className="chevron" onClick={toggleShow}>
             <img
               src={chevron}
@@ -32,9 +26,9 @@ export default function Node(props: NodeProps) {
           </div>
         )}
       </div>
-      {props.children && (
+      {children && (
         <div className={clsx("children", show && "show")}>
-          <TreeNode node={props.children} />
+          <TreeNode node={children} />
         </div>
       )}
     </div>

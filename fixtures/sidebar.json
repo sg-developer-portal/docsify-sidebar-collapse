@@ -7,6 +7,30 @@
         "link": "https://youtube.com"
     },
     {
+        "section": "Section Name",
+        "children": [
+            {
+                "text": "hello there"
+            },
+            {
+                "text": "this is a link",
+                "link": "https://youtube.com"
+            },
+            {
+                "section": "Section Name",
+                "children": [
+                    {
+                        "text": "hello there"
+                    },
+                    {
+                        "text": "this is a link",
+                        "link": "https://youtube.com"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "text": "this is a header",
         "link": "https://youtube.com",
         "children": [
@@ -28,6 +52,30 @@
         "text": "this is a header",
         "link": "https://youtube.com",
         "children": [
+            {
+                "text": "this is a child"
+            },
+            {
+                "text": "this is a header",
+                "children": [
+                    {
+                        "text": "this is a child",
+                        "link": "https://youtube.com"
+                    }
+                ]
+            },
+            {
+                "text": "this is a child"
+            },
+            {
+                "text": "this is a header",
+                "children": [
+                    {
+                        "text": "this is a child",
+                        "link": "https://youtube.com"
+                    }
+                ]
+            },
             {
                 "text": "this is a child"
             },

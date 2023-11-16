@@ -1,5 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
 p {
     all: unset;
+}
+
+hr {
+    margin-left: .75rem;
 }
 
 #sidebar {
@@ -11,7 +22,7 @@ p {
     overflow: hidden;
     margin-left: .5rem;
     max-height: 0;
-    transition: max-height .2s;
+    transition: max-height .3s;
 }
 
 .children.show {
@@ -19,7 +30,7 @@ p {
     transition: max-height 1s;
 }
 
-.link, .text {
+.link, .text, .section {
     padding: .5rem .75rem;
     border-radius: .25rem;
     width: 100%;
