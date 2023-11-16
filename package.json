@@ -1,35 +1,19 @@
 {
-  "name": "@lx0f/docsify-sidebar-collapse",
-  "version": "1.0.9",
-  "description": "A docsify plugin for a collapsible sidebar!",
-  "scripts": {
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production",
-    "lint": "eslint --config .eslintrc.cjs --fix src/"
-  },
-  "keywords": [
-    "docsify",
-    "plugin",
-    "sidebar"
-  ],
+  "name": "docsify-sidebar-collpase",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "author": "Luth Andyka <luthandyka.business@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lx0f/docsify-sidebar-collapse"
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "files": [
-    "dist/"
-  ],
-  "license": "GPL-3.0",
+  "dependencies": {
+    "preact": "^10.16.0"
+  },
   "devDependencies": {
-    "css-loader": "^6.7.4",
-    "eslint": "^8.41.0",
-    "node-sass": "^9.0.0",
-    "sass": "^1.62.1",
-    "sass-loader": "^13.3.0",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.83.1",
-    "webpack-cli": "^5.1.1"
+    "@preact/preset-vite": "^2.5.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
   }
 }
