@@ -1,5 +1,6 @@
 import { render } from "preact";
-import Sidebar from "./components/tree.tsx";
+import Tree from "./components/tree.tsx";
 import sidebar from "../fixtures/sidebar.json";
+import "./assets/main.scss";
 
-render(<Sidebar node={sidebar} />, document.getElementById("sidebar")!);
+render(<Tree node={sidebar} />, document.getElementById("sidebar")!);

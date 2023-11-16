@@ -16,7 +16,8 @@
                 "text": "this is a header",
                 "children": [
                     {
-                        "text": "this is a child"
+                        "text": "this is a child",
+                        "link": "https://youtube.com"
                     }
                 ]
             }

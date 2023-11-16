@@ -1,0 +1,28 @@
+p {
+    all: unset;
+}
+
+#sidebar {
+    padding: 5rem;
+}
+
+.children {
+    display: none;
+}
+
+.children.show {
+    display: block;
+    margin-left: 1rem;
+}
+
+.link, .text {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text:hover, .link:hover {
+    background-color: rgba($color: #000000, $alpha: .1);
+}
