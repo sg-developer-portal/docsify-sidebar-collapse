@@ -21,4 +21,4 @@ export const isTextNode = (obj: any): obj is TextNode => {
 
 export type Node = TextNode | LinkNode;
 
-export type SidebarNode = Node[];
+export type Nodes = Node[];
