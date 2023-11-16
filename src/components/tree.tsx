@@ -10,13 +10,11 @@ type TreeNodeProps = {
 export default function TreeNode({ node }: TreeNodeProps) {
   const tree = node.map((node) => {
     if (isLinkNode(node)) {
-      return (
-        <LinkNode text={node.text} link={node.link} children={node.children} />
-      );
+      return <LinkNode {...node} />;
     } else if (isTextNode(node)) {
-      return <TextNode text={node.text} children={node.children} />;
+      return <TextNode {...node} />;
     } else if (isSectionNode(node)) {
-      return <SectionNode section={node.section} children={node.children} />;
+      return <SectionNode {...node} />;
     } else {
       console.error(JSON.stringify(node), "incorrect node format.");
       return <p>Error Node</p>;

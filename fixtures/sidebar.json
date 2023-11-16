@@ -1,10 +1,29 @@
 [
     {
-        "text": "hello there"
+        "text": "hello there",
+        "style": [
+            "bold"
+        ]
+    },
+    {
+        "text": "hello there",
+        "style": [
+            "italic"
+        ]
+    },
+    {
+        "text": "hello there",
+        "style": [
+            "bold",
+            "italic"
+        ]
     },
     {
         "text": "this is a link",
-        "link": "https://youtube.com"
+        "link": "https://youtube.com",
+        "style": [
+            "italic"
+        ]
     },
     {
         "section": "Section Name",

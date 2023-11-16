@@ -1,17 +1,22 @@
+type style = "bold" | "italic";
+
 export type TextNode = {
   text: string;
+  style?: style[];
   children?: Array<Node>;
 };
 
 export type LinkNode = {
   text: string;
   link: string;
+  style?: style[];
   children?: Array<Node>;
 };
 
 export type SectionNode = {
   section: string;
   children?: Array<Node>;
+  style?: style[];
 };
 
 export const isLinkNode = (obj: any): obj is LinkNode => {

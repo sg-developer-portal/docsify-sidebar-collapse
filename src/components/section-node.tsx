@@ -1,13 +1,18 @@
+import clsx from "clsx";
 import { type SectionNode } from "../core/node";
 import TreeNode from "./tree";
 
 type SectionNodeProps = SectionNode;
 
-export default function SectionNode({ section, children }: SectionNodeProps) {
+export default function SectionNode({
+  section,
+  children,
+  style,
+}: SectionNodeProps) {
   return (
     <section>
       <div className="section-node">
-        <strong className="section">{section}</strong>
+        <strong className={clsx("section", style)}>{section}</strong>
       </div>
       <hr />
       {children && (

@@ -36,6 +36,14 @@ hr {
     width: 100%;
 }
 
+.text.bold, .link.bold {
+    font-weight: bold;
+}
+
+.text.italic, .link.italic {
+    font-style: italic;
+}
+
 .chevron {
     padding: .5rem .75rem;
 }

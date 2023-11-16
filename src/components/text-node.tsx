@@ -5,13 +5,14 @@ import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
 
 type TextNodeProps = TextNode;
-export default function TextNode({ text, children }: TextNodeProps) {
+
+export default function TextNode({ text, children, style }: TextNodeProps) {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
   return (
     <div>
       <div className="node">
-        <p className="text" onClick={toggleShow}>
+        <p className={clsx("text", style)} onClick={toggleShow}>
           {text}
         </p>
         {children && (

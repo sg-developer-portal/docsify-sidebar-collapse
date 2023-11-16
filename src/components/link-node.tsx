@@ -5,13 +5,18 @@ import TreeNode from "./tree";
 import chevron from "../assets/chevron.png";
 
 type LinkNodeProps = LinkNode;
-export default function LinkNode({ link, text, children }: LinkNodeProps) {
+export default function LinkNode({
+  link,
+  text,
+  style,
+  children,
+}: LinkNodeProps) {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
   return (
     <div>
       <div className="node">
-        <a className="link" href={link} onClick={toggleShow}>
+        <a className={clsx("link", style)} href={link} onClick={toggleShow}>
           {text}
         </a>
         {children && (
