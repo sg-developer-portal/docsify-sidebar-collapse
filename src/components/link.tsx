@@ -1,0 +1,21 @@
+import { Tokens } from "marked";
+import { ComponentProps, JSX } from "preact";
+import Token from "./token";
+
+type LinkProps = {
+  token: Tokens.Link;
+} & ComponentProps<"a">;
+
+export default function Link({ token, ...props }: LinkProps) {
+  let el: JSX.Element[] | undefined = undefined;
+  if (token.tokens) {
+    el = token.tokens.map((t, idx) => (
+      <Token token={t} key={`token-${token.type}-${token.text}-${idx}`} />
+    ));
+  }
+  return (
+    <a {...props} href={token.href}>
+      {el || token.text}
+    </a>
+  );
+}

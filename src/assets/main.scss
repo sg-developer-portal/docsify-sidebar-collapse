@@ -1,16 +1,19 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$transition-duration: .3s;
+$transition-style: cubic-bezier(0.08,0.52,0.52,1);
+
+a, p {
+    all: unset
+}
+
+li, ul {
+    all: unset;
+    display: block;
+}
 
 body {
     font-family: 'Source Sans 3', sans-serif;
-}
-
-p, a {
-    all: unset;
-}
-
-hr {
-    margin-left: .75rem;
 }
 
 #sidebar {
@@ -19,37 +22,40 @@ hr {
 }
 
 .children {
-    overflow: hidden;
-    margin-left: .75rem;
-    max-height: 0;
-    transition: max-height .3s;
+    display: grid;
+    grid-template-rows: 0fr;
+    margin-left: .5rem;
+    transition: grid-template-rows $transition-duration $transition-style
+}
+
+.head {
+    display: flex;
 }
 
 .children.show {
-    max-height: 100vh;
-    transition: max-height 1s;
+    grid-template-rows: 1fr;
 }
 
-section {
-    margin-bottom: 2rem;
+.children > ul {
+    overflow: hidden;
 }
 
-.link, .text, .section {
-    padding: .5rem .75rem;
-    border-radius: .25rem;
+.text {
     width: 100%;
-}
-
-.text.bold, .link.bold {
-    font-weight: bold;
-}
-
-.text.italic, .link.italic {
-    font-style: italic;
+    display: block;
+    padding: .5rem .75rem;
 }
 
 .chevron {
-    padding: .5rem .75rem;
+    padding: .5rem 1.25rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    transition: background-color $transition-duration $transition-style;
+}
+
+.chevron:hover {
+    background-color: rgba($color: #000000, $alpha: .1);
 }
 
 .chevron-icon {
@@ -60,26 +66,8 @@ section {
     transform: rotate(90deg);
 }
 
-.chevron:hover {
+.head:hover {
     background-color: rgba($color: #000000, $alpha: .1);
-}
-
-.node {
-    display: flex;
-    align-items: center;
     border-radius: .25rem;
-}
-
-.node.has-active {
-    color: #0076d6;
-}
-
-.node.active {
-    color: #0076d6;
-    background-color: rgba($color: #000000, $alpha: .1);
-}
-
-.node:hover {
-    background-color: rgba($color: #000000, $alpha: .1);
-    cursor:pointer;
+    cursor: pointer;
 }
