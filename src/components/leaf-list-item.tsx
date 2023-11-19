@@ -2,7 +2,8 @@ import type { Tokens } from "marked";
 import { ComponentProps } from "preact";
 import Text from "./text";
 import clsx from "clsx";
-import { getTextToken, getLinkToken } from "./list-item";
+import { getTextToken, getLinkToken, getActiveLinkToken } from "./list-item";
+import { isActiveLinkToken } from "./link";
 
 type LeafListItemProps = {
   token: Tokens.ListItem;
@@ -26,7 +27,14 @@ export default function LeafListItem({
   const linkToken = getLinkToken(textToken);
 
   return (
-    <li className={clsx("node", className)} {...props}>
+    <li
+      className={clsx(
+        "node",
+        linkToken && isActiveLinkToken(linkToken) && "active",
+        className
+      )}
+      {...props}
+    >
       <div className="head">
         <Text
           className="text link"

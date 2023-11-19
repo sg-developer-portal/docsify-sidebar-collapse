@@ -1,9 +1,8 @@
 import type { Token as Tkn, Tokens } from "marked";
-import { ComponentProps, JSX } from "preact";
-import Token from "./token";
-import clsx from "clsx";
+import { ComponentProps } from "preact";
 import RootListItem from "./root-list-item";
 import LeafListItem from "./leaf-list-item";
+import { isActiveLinkToken } from "./link";
 
 type ListItemProps = {
   token: Tokens.ListItem;
@@ -40,8 +39,15 @@ export function getLinkToken(token: Tkn): Tokens.Link | undefined {
   return find(token, (t) => t.type === "link") as Tokens.Link | undefined;
 }
 
+export function getActiveLinkToken(token: Tkn): Tokens.Link | undefined {
+  return find(
+    token,
+    (t) => t.type === "link" && isActiveLinkToken(t as Tokens.Link)
+  ) as Tokens.Link | undefined;
+}
+
 function find(token: Tkn, predicate: (t: Tkn) => boolean): Tkn | undefined {
-  if (token.type === "link") {
+  if (predicate(token)) {
     return token;
   }
 
@@ -49,6 +55,13 @@ function find(token: Tkn, predicate: (t: Tkn) => boolean): Tkn | undefined {
 
   if (t.hasOwnProperty("tokens")) {
     for (const _t of t.tokens) {
+      const res = find(_t, predicate);
+      if (res) return res;
+    }
+  }
+
+  if (t.hasOwnProperty("items")) {
+    for (const _t of t.items) {
       const res = find(_t, predicate);
       if (res) return res;
     }
