@@ -35,8 +35,7 @@ export default function LeafListItem({
   );
 
   useUrlChange((url) => {
-    const ia = _isActive(url, linkToken);
-    setIsActive(ia);
+    setIsActive(_isActive(url, linkToken));
   });
 
   return (

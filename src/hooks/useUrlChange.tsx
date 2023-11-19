@@ -8,9 +8,6 @@ const useUrlChange = (callback?: (url: string) => void) => {
   };
 
   useEffect(() => {
-    // Initial setup
-    handleUrlChange();
-
     // Event listener for changes in the URL
     const handlePopState = () => {
       handleUrlChange();
@@ -22,7 +19,7 @@ const useUrlChange = (callback?: (url: string) => void) => {
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
-  }, [callback]);
+  }, []);
 
   // Optionally, you can return the current URL if needed
   const currentUrl = window.location.href;
