@@ -39,10 +39,13 @@ export function getLinkToken(token: Tkn): Tokens.Link | undefined {
   return find(token, (t) => t.type === "link") as Tokens.Link | undefined;
 }
 
-export function getActiveLinkToken(token: Tkn): Tokens.Link | undefined {
+export function getActiveLinkToken(
+  token: Tkn,
+  url: string
+): Tokens.Link | undefined {
   return find(
     token,
-    (t) => t.type === "link" && isActiveLinkToken(t as Tokens.Link)
+    (t) => t.type === "link" && isActiveLinkToken(t as Tokens.Link, url)
   ) as Tokens.Link | undefined;
 }
 

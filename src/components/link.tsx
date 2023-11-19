@@ -20,6 +20,6 @@ export default function Link({ token, ...props }: LinkProps) {
   );
 }
 
-export function isActiveLinkToken(token: Tokens.Link): boolean {
-  return window.location.href.endsWith(token.href);
+export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
+  return url.endsWith(token.href);
 }

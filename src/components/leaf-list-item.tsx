@@ -2,8 +2,10 @@ import type { Tokens } from "marked";
 import { ComponentProps } from "preact";
 import Text from "./text";
 import clsx from "clsx";
-import { getTextToken, getLinkToken, getActiveLinkToken } from "./list-item";
+import { getTextToken, getLinkToken } from "./list-item";
 import { isActiveLinkToken } from "./link";
+import { useState } from "preact/hooks";
+import useUrlChange from "../hooks/useUrlChange";
 
 type LeafListItemProps = {
   token: Tokens.ListItem;
@@ -26,15 +28,19 @@ export default function LeafListItem({
 
   const linkToken = getLinkToken(textToken);
 
+  const _isActive = (url: string, token?: Tokens.Link) =>
+    token && isActiveLinkToken(token, url);
+  const [isActive, setIsActive] = useState(
+    _isActive(window.location.href, linkToken)
+  );
+
+  useUrlChange((url) => {
+    const ia = _isActive(url, linkToken);
+    setIsActive(ia);
+  });
+
   return (
-    <li
-      className={clsx(
-        "node",
-        linkToken && isActiveLinkToken(linkToken) && "active",
-        className
-      )}
-      {...props}
-    >
+    <li className={clsx("node", isActive && "active", className)} {...props}>
       <div className="head">
         <Text
           className="text link"
