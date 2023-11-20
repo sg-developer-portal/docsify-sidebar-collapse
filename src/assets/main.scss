@@ -6,7 +6,11 @@ $active-node-background-color: rgba($color: #000000, $alpha: .1);
 $active-node-color: #0076d6;
 
 
-.sidebar, #sidebar {
+body {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.enhanced-sidebar, #enhanced-sidebar {
     padding: 2rem 1rem;
 
     a, p {
@@ -17,83 +21,79 @@ $active-node-color: #0076d6;
         all: unset;
         display: block;
     }
-}
 
-body {
-    font-family: 'Source Sans 3', sans-serif;
-}
-
-.children {
-    display: grid;
-    grid-template-rows: 0fr;
-    margin-left: .5rem;
-    transition: grid-template-rows $transition-duration $transition-style
-}
-
-.head {
-    display: flex;
-}
-
-.children.show {
-    grid-template-rows: 1fr;
-}
-
-.children > ul {
-    overflow: hidden;
-}
-
-.text {
-    width: 100%;
-    display: block;
-}
-
-.text > a, .text > span {
-    display: block;
-    padding: .5rem .75rem;
-}
-
-.chevron {
-    padding: .5rem 1.25rem;
-    border-radius: .25rem;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    transition: background-color $transition-duration $transition-style;
-}
-
-.chevron:hover {
-    background-color: $active-node-background-color;
-}
-
-.chevron-icon {
-    transition: transform .3s;
-}
-
-.chevron-icon.show {
-    transform: rotate(90deg);
-}
-
-.head {
-    cursor: pointer;
-    border-radius: .25rem;
-    transition: background-color $transition-duration $transition-style;
-}
-
-.head:hover {
-    background-color: $active-node-background-color;
-}
-
-.node.has-active > .head > .text {
-    a > span, span {
-        color: $active-node-color;
+    .children {
+        display: grid;
+        grid-template-rows: 0fr;
+        margin-left: .5rem;
+        transition: grid-template-rows $transition-duration $transition-style
     }
-}
-
-.node.active > .head {
-    background-color: $active-node-background-color;
-    .text { 
+    
+    .head {
+        display: flex;
+    }
+    
+    .children.show {
+        grid-template-rows: 1fr;
+    }
+    
+    .children > ul {
+        overflow: hidden;
+    }
+    
+    .text {
+        width: 100%;
+        display: block;
+    }
+    
+    .text > a, .text > span {
+        display: block;
+        padding: .5rem .75rem;
+    }
+    
+    .chevron {
+        padding: .5rem 1.25rem;
+        border-radius: .25rem;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        transition: background-color $transition-duration $transition-style;
+    }
+    
+    .chevron:hover {
+        background-color: $active-node-background-color;
+    }
+    
+    .chevron-icon {
+        transition: transform .3s;
+    }
+    
+    .chevron-icon.show {
+        transform: rotate(90deg);
+    }
+    
+    .head {
+        cursor: pointer;
+        border-radius: .25rem;
+        transition: background-color $transition-duration $transition-style;
+    }
+    
+    .head:hover {
+        background-color: $active-node-background-color;
+    }
+    
+    .node.has-active > .head > .text {
         a > span, span {
             color: $active-node-color;
+        }
+    }
+    
+    .node.active > .head {
+        background-color: $active-node-background-color;
+        .text { 
+            a > span, span {
+                color: $active-node-color;
+            }
         }
     }
 }
