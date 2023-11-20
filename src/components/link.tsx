@@ -14,7 +14,7 @@ export default function Link({ token, ...props }: LinkProps) {
     ));
   }
   return (
-    <a {...props} href={token.href}>
+    <a {...props} href={parseLink(token.href)}>
       {el || token.text}
     </a>
   );
@@ -22,4 +22,11 @@ export default function Link({ token, ...props }: LinkProps) {
 
 export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
   return url.endsWith(token.href);
+}
+
+function parseLink(url: string): string {
+  if (url === "/") {
+    return window.location.pathname;
+  }
+  return url;
 }
