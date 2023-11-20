@@ -14,7 +14,7 @@ export default function Link({ token, ...props }: LinkProps) {
     ));
   }
   return (
-    <a {...props} href={`#/${token.href}`}>
+    <a {...props} href={token.href}>
       {el || token.text}
     </a>
   );
