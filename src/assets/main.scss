@@ -5,22 +5,22 @@ $transition-style: cubic-bezier(0.08,0.52,0.52,1);
 $active-node-background-color: rgba($color: #000000, $alpha: .1);
 $active-node-color: #0076d6;
 
-a, p {
-    all: unset
-}
 
-li, ul {
-    all: unset;
-    display: block;
+.sidebar, #sidebar {
+    padding: 2rem 1rem;
+
+    a, p {
+        all: unset
+    }
+    
+    li, ul {
+        all: unset;
+        display: block;
+    }
 }
 
 body {
     font-family: 'Source Sans 3', sans-serif;
-}
-
-#sidebar {
-    padding: 5rem 1rem;
-    background-color: rgb(246, 246, 246);
 }
 
 .children {
@@ -45,11 +45,16 @@ body {
 .text {
     width: 100%;
     display: block;
+}
+
+.text > a, .text > span {
+    display: block;
     padding: .5rem .75rem;
 }
 
 .chevron {
     padding: .5rem 1.25rem;
+    border-radius: .25rem;
     display: flex;
     justify-items: center;
     align-items: center;
@@ -79,10 +84,16 @@ body {
 }
 
 .node.has-active > .head > .text {
-    color: $active-node-color;
+    a > span, span {
+        color: $active-node-color;
+    }
 }
 
 .node.active > .head {
     background-color: $active-node-background-color;
-    color: $active-node-color;
+    .text { 
+        a > span, span {
+            color: $active-node-color;
+        }
+    }
 }

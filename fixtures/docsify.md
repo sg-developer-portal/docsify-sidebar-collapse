@@ -2,7 +2,7 @@
 
 ---
 
-- [Getting started](getting-started.md)
+- Getting started
 
   - [Quick start](quickstart.md)
   - [Writing more pages](more-pages.md)

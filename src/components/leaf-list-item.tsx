@@ -41,13 +41,7 @@ export default function LeafListItem({
   return (
     <li className={clsx("node", isActive && "active", className)} {...props}>
       <div className="head">
-        <Text
-          className="text link"
-          token={textToken}
-          onClick={() =>
-            linkToken && window.location.assign(`#/${linkToken.href}`)
-          }
-        />
+        <Text className="text link" token={textToken} />
       </div>
     </li>
   );

@@ -77,13 +77,7 @@ export default function RootListItem({
       {...props}
     >
       <div className="head">
-        <Text
-          className="text link"
-          token={textToken}
-          onClick={() =>
-            linkToken && window.location.assign(`#/${linkToken.href}`)
-          }
-        />
+        <Text className="text link" token={textToken} />
         <div className="chevron" onClick={toggleShow}>
           <img
             src={chevron}
