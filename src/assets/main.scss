@@ -46,6 +46,7 @@ $active-node-color: #0076d6;
         }
         > *:first-child {
             padding-left: .75rem;
+            flex-grow: 1;
         }
         > *:last-child {
             padding-right: .75rem;
