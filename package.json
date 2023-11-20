@@ -1,6 +1,6 @@
 {
   "name": "@lx0f/docsify-sidebar-collapse",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "description": "A docsify plugin for a collapsible sidebar!",
   "author": "Luth Andyka <luthandyka.business@gmail.com>",
