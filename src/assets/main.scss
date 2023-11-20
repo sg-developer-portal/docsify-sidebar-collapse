@@ -38,13 +38,19 @@ $active-node-color: #0076d6;
     
     .text {
         width: 100%;
-        display: block;
-    }
-    
-    .text.link {
-        display: inline-block;
-        padding: .5rem .75rem;
-    }
+        display: flex;
+        > * {
+            display: inline-block;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+        }
+        > *:first-child {
+            padding-left: .75rem;
+        }
+        > *:last-child {
+            padding-right: .75rem;
+        }
+    } 
     
     .chevron {
         padding: .5rem 1.25rem;
