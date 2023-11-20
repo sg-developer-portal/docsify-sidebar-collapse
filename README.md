@@ -1,51 +1,30 @@
 # docsify-sidebar-collapse
 
-> !! This plugin depends on the [docsify-themeable plugin](https://github.com/jhildenbiddle/docsify-themeable) !!
+## Install
 
-> !! The sidebar will no longer contain the page's TOC as the subMaxLevel value will be overridden to 0, take a look at Ducksss awesome [docsify TOC plugin](https://github.com/sg-developer-portal/docsify-toc-plugin) instead !!
+Copy the css link into your html file.
 
-## Usage
-
-1. Configure docsify-sidebar-collapse plugin:
 ```html
-<script>
-	window.$docsify = {
-		 enableSidebarCollapse: true
-	};
-</script>
+<!-- index.html -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@lx0f/docsify-sidebar-collapse@2.0.0/dist/index.css"
+/>
 ```
 
-2. Insert script into docsify document:
+Copy the script tag into your html file.
+
 ```html
-<head>
-    <!-- Themes (light + dark) -->
-   <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
-   <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-</head>
-<body>
-    <!-- docsify-themeable -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-    <!-- docsify-sidebar-collapse -->
-    <script src="https://cdn.jsdelivr.net/npm/@lx0f/docsify-sidebar-collapse@latest/dist/docsify-sidebar-collapse.bundle.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/@lx0f/docsify-sidebar-collapse@2.0.0/dist/index.js"></script>
 ```
 
-3. Setup _sidebar.md
-```md
-- Folder
+Setup sidebar configuration in your docsify config.
 
-    - [Usage](usage.md)
-    - [Contributing](contributing.md)
+> NOTE! Base path uses the `nameLink` config name
 
-    - Homework Folder
-        - [Secret Sauce](krabby-patty/secret-sauce.md)
-        - [One Piece](oda-basement.md)
-
-- **Bolded Folder**
-
-    - **Another Bolded Folder**
-        - [Your IP Address](ip-address.md)
-
-- [How To Centre Div](https://luthandyka.dev)
+```js
+window.$docsify = {
+  enableSidebarCollapse: true,
+  nameLink: "/docs/slug",
+};
 ```
-
