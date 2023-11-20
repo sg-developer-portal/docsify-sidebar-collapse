@@ -3,7 +3,7 @@ import { ComponentProps } from "preact";
 import Text from "./text";
 import clsx from "clsx";
 import { getTextToken, getLinkToken } from "./list-item";
-import { isActiveLinkToken } from "./link";
+import Link, { isActiveLinkToken } from "./link";
 import { useState } from "preact/hooks";
 import useHistory from "../hooks/useHistory";
 
@@ -41,7 +41,11 @@ export default function LeafListItem({
   return (
     <li className={clsx("node", isActive && "active", className)} {...props}>
       <div className="head">
-        <Text className="text link" token={textToken} />
+        {linkToken ? (
+          <Link className="text link" token={linkToken} />
+        ) : (
+          <Text className="text link" token={textToken} />
+        )}
       </div>
     </li>
   );

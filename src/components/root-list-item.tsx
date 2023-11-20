@@ -11,7 +11,7 @@ import {
   getActiveLinkToken,
 } from "./list-item";
 import chevron from "../assets/chevron.png";
-import { isActiveLinkToken } from "./link";
+import Link, { isActiveLinkToken } from "./link";
 import useHistory from "../hooks/useHistory";
 
 type RootListItemProps = {
@@ -77,7 +77,11 @@ export default function RootListItem({
       {...props}
     >
       <div className="head">
-        <Text className="text link" token={textToken} />
+        {linkToken ? (
+          <Link className="text link" token={linkToken} />
+        ) : (
+          <Text className="text link" token={textToken} />
+        )}
         <div className="chevron" onClick={toggleShow}>
           <img
             src={chevron}
