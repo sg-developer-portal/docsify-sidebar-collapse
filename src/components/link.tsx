@@ -1,6 +1,7 @@
 import { Tokens } from "marked";
 import { ComponentProps, JSX } from "preact";
 import Token from "./token";
+import { useConfig } from "../context/config";
 
 type LinkProps = {
   token: Tokens.Link;
@@ -13,8 +14,9 @@ export default function Link({ token, ...props }: LinkProps) {
       <Token token={t} key={`token-${token.type}-${token.text}-${idx}`} />
     ));
   }
+  const { basePath } = useConfig();
   return (
-    <a {...props} href={parseLink(token.href)}>
+    <a {...props} href={parseLink(token.href, basePath)}>
       {el || token.text}
     </a>
   );
@@ -24,9 +26,9 @@ export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
   return url.endsWith(token.href);
 }
 
-function parseLink(url: string): string {
+function parseLink(url: string, basePath: string) {
   if (url === "/") {
-    return window.location.pathname;
+    return basePath;
   }
   return url;
 }

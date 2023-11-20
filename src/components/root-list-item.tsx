@@ -12,7 +12,7 @@ import {
 } from "./list-item";
 import chevron from "../assets/chevron.png";
 import { isActiveLinkToken } from "./link";
-import useUrlChange from "../hooks/useUrlChange";
+import useHistory from "../hooks/useHistory";
 
 type RootListItemProps = {
   token: Tokens.ListItem;
@@ -58,7 +58,7 @@ export default function RootListItem({
   const [show, setShow] = useState(hasActive || isActive);
   const toggleShow = () => setShow((prev) => !prev);
 
-  useUrlChange((url) => {
+  useHistory((url) => {
     const ha = _ha(url, listToken);
     const ia = _ia(url, linkToken);
     setHasActive(ha);

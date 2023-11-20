@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { getTextToken, getLinkToken } from "./list-item";
 import { isActiveLinkToken } from "./link";
 import { useState } from "preact/hooks";
-import useUrlChange from "../hooks/useUrlChange";
+import useHistory from "../hooks/useHistory";
 
 type LeafListItemProps = {
   token: Tokens.ListItem;
@@ -34,7 +34,7 @@ export default function LeafListItem({
     _isActive(window.location.href, linkToken)
   );
 
-  useUrlChange((url) => {
+  useHistory((url) => {
     setIsActive(_isActive(url, linkToken));
   });
 
