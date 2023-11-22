@@ -13,5 +13,8 @@ export default function Text({ token, ...props }: TextProps) {
       <Token token={t} key={`token-${token.type}-${token.text}-${idx}`} />
     ));
   }
-  return <span {...props}>{el || token.text}</span>;
+  if (token.raw === "&nbsp;") {
+    return <>&nbsp;</>;
+  }
+  return <span {...props}>{el || token.raw}</span>;
 }

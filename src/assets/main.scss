@@ -39,6 +39,7 @@ $active-node-color: #0076d6;
     .text {
         width: 100%;
         display: flex;
+        overflow:hidden;
         > * {
             flex-grow: 1;
             display: block;

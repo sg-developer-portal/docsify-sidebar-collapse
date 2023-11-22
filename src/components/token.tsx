@@ -8,6 +8,7 @@ import List from "./list";
 import ListItem from "./list-item";
 import Space from "./space";
 import Hr from "./hr";
+import Html from "./html";
 
 type TokenProps = {
   token: Token;
@@ -29,6 +30,8 @@ export default function Token({ token }: TokenProps) {
       return <List token={token as Tokens.List} />;
     case "list_item":
       return <ListItem token={token as Tokens.ListItem} />;
+    case "html":
+      return <Html token={token as Tokens.HTML} />;
     case "space":
       return <Space />;
     case "hr":
