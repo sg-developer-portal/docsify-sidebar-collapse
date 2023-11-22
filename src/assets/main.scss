@@ -43,6 +43,9 @@ $active-node-color: #0076d6;
             flex-grow: 1;
             display: block;
             padding: .5rem .75rem;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     } 
     
