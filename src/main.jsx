@@ -10,28 +10,23 @@ function createRoot(el, id) {
     return el;
 }
 
-function _renderSidebar(txt, basePath, el) {
+function renderSidebar(markdown, basePath, el) {
     const lexer = new Lexer();
-    const tokens = lexer.lex(txt);
+    const tokens = lexer.lex(markdown);
     render(<Sidebar tokens={tokens} basePath={basePath} />, el);
 }
 
 window.$docsify = window.$docsify || {};
 window.$docsify.plugins = [].concat(function(hook, vm) {
-    if (vm.config.enableSidebarCollapse) {
-        hook.mounted(() => {
-            const el = document.querySelector('.sidebar-nav');
-            const root = createRoot(el, 'enhanced-sidebar');
-            vm._renderSidebar = (txt) => {
-                _renderSidebar(txt, vm.config.nameLink, root);
-            }
-        })
-    }
-}, $docsify.plugins || []);
+    const { enableSidebarCollapse, nameLink } = vm.config;
 
-window.addEventListener("click", (e) => {
-    if (e.target.tagName === "A" && document.querySelector('#enhanced-sidebar').contains(e.target)) {
-        e.preventDefault();
-        window.history.pushState(undefined, "", e.target.href)
-    }
-})
+    if (!enableSidebarCollapse) return;
+
+    hook.mounted(() => {
+        const el = document.querySelector('.sidebar-nav');
+        const root = createRoot(el, 'enhanced-sidebar');
+        vm._renderSidebar = (markdown) => {
+            renderSidebar(markdown, nameLink, root);
+        }
+    })
+}, $docsify.plugins || []);
