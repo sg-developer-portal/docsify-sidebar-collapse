@@ -78,9 +78,9 @@ export default function RootListItem({
     >
       <div className="head">
         {linkToken ? (
-          <Link className="text link" token={linkToken} />
+          <Link onClick={toggleShow} className="text link" token={linkToken} />
         ) : (
-          <Text className="text link" token={textToken} />
+          <Text onClick={toggleShow} className="text link" token={textToken} />
         )}
         <div className="chevron" onClick={toggleShow}>
           <img
