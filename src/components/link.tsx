@@ -72,5 +72,9 @@ function parseRelativePath(href: string): string {
 }
 
 function parseAbsolutePath(href: string, basePath: string): string {
-  return href === "/" ? basePath : basePath + href;
+  if (href.startsWith("/")) {
+    return basePath + href.slice(1);
+  } else {
+    return basePath;
+  }
 }
