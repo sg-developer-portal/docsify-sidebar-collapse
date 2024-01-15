@@ -76,9 +76,5 @@ function parseAbsolutePath(href: string, basePath: string): string {
     basePath = basePath.slice(0, basePath.length - 1);
   }
 
-  if (!href.startsWith("/")) {
-    href = href.slice(1);
-  }
-
   return basePath + href;
 }
