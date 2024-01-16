@@ -41,6 +41,10 @@ export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
 }
 
 function parseUrl(href: string, basePath: string): string | null {
+  if (href.endsWith(".md")) {
+    href = href.slice(0, href.length - 3);
+  }
+
   if (isAbsolute(href)) {
     return parseAbsolutePath(href, basePath);
   } else if (isRelative(href)) {
