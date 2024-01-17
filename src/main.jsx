@@ -3,30 +3,33 @@ import { render } from "preact";
 import Sidebar from "./sidebar"
 import "./assets/main.scss";
 
-function createRoot(el, id) {
-    el.innerHTML = "";
-    el.id = id;
-    el.className = id;
-    return el;
-}
-
-function renderSidebar(markdown, basePath, el) {
-    const lexer = new Lexer();
-    const tokens = lexer.lex(markdown);
-    render(<Sidebar tokens={tokens} basePath={basePath} />, el);
-}
-
 window.$docsify = window.$docsify || {};
 window.$docsify.plugins = [].concat(function(hook, vm) {
-    const { enableSidebarCollapse, nameLink } = vm.config;
+    const { enableSidebarCollapse, nameLink: basePath } = vm.config;
 
     if (!enableSidebarCollapse) return;
 
     hook.mounted(() => {
-        const el = document.querySelector('.sidebar-nav');
-        const root = createRoot(el, 'enhanced-sidebar');
+        const rootElement = document.querySelector(".sidebar-nav");
+
+        // Clear and flag the element
+        rootElement.innerHTML = ""
+        rootElement.id = "enhanced-sidebar";
+        rootElement.className = "enhanced-sidebar";
+
         vm._renderSidebar = (markdown) => {
-            renderSidebar(markdown, nameLink, root);
+            const lexer = new Lexer();
+            const tokens = lexer.lex(markdown);
+
+            render(<Sidebar tokens={tokens} basePath={basePath} />, rootElement);
         }
+
+        // Prevents docsify from auto-collapsing the sidebar panel on mobile view
+        // when clicking on sidebar items.
+        // 
+        // https://github.com/docsifyjs/docsify/blob/a416f97237318503cdf48430b20402ca5e2b30ec/src/core/event/index.js#L360-L365
+        rootElement.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
     })
 }, $docsify.plugins || []);
