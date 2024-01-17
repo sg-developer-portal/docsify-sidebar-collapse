@@ -2,7 +2,7 @@ import type { Token as Tkn, Tokens } from "marked";
 import { ComponentProps } from "preact";
 import RootListItem from "./root-list-item";
 import LeafListItem from "./leaf-list-item";
-import { isActiveLinkToken } from "./link";
+import { isActiveLinkToken } from "../lib/url";
 
 type ListItemProps = {
   token: Tokens.ListItem;

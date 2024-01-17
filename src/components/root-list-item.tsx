@@ -11,8 +11,9 @@ import {
   getActiveLinkToken,
 } from "./list-item";
 import chevron from "../assets/chevron.png";
-import Link, { isActiveLinkToken } from "./link";
+import Link from "./link";
 import useHistory from "../hooks/useHistory";
+import { isActiveLinkToken } from "../lib/url";
 
 type RootListItemProps = {
   token: Tokens.ListItem;

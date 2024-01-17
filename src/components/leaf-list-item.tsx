@@ -3,9 +3,10 @@ import { ComponentProps } from "preact";
 import Text from "./text";
 import clsx from "clsx";
 import { getTextToken, getLinkToken } from "./list-item";
-import Link, { isActiveLinkToken } from "./link";
+import Link from "./link";
 import { useState } from "preact/hooks";
 import useHistory from "../hooks/useHistory";
+import { isActiveLinkToken } from "../lib/url";
 
 type LeafListItemProps = {
   token: Tokens.ListItem;
