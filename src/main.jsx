@@ -23,13 +23,5 @@ window.$docsify.plugins = [].concat(function(hook, vm) {
 
             render(<Sidebar tokens={tokens} basePath={basePath} />, rootElement);
         }
-
-        // Prevents docsify from auto-collapsing the sidebar panel on mobile view
-        // when clicking on sidebar items.
-        // 
-        // https://github.com/docsifyjs/docsify/blob/a416f97237318503cdf48430b20402ca5e2b30ec/src/core/event/index.js#L360-L365
-        rootElement.addEventListener('click', (e) => {
-            e.stopPropagation();
-        })
     })
 }, $docsify.plugins || []);

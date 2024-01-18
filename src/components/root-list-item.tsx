@@ -81,9 +81,22 @@ export default function RootListItem({
         {linkToken ? (
           <Link onClick={toggleShow} className="text link" token={linkToken} />
         ) : (
-          <Text onClick={toggleShow} className="text link" token={textToken} />
+          <Text
+            onClick={(e) => {
+              toggleShow();
+              e.stopPropagation();
+            }}
+            className="text link"
+            token={textToken}
+          />
         )}
-        <div className="chevron" onClick={toggleShow}>
+        <div
+          className="chevron"
+          onClick={(e) => {
+            toggleShow();
+            e.stopPropagation();
+          }}
+        >
           <img
             src={chevron}
             alt="chevron"
