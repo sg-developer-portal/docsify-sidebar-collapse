@@ -1,8 +1,12 @@
 import { Tokens } from "marked";
 
 export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
-  const relativePathRegex = /^\.\.?/;
-  return url.endsWith(token.href.replace(relativePathRegex, ""));
+  const href = token.href
+    .replace("../", "/")
+    .replace("./", "/")
+    .replace(".md", "");
+
+  return url.endsWith(href);
 }
 
 export function parseUrl(href: string, basePath: string): string {
