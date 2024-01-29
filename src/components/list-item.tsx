@@ -41,7 +41,7 @@ export function getLinkToken(token: Tkn): Tokens.Link | undefined {
 
 export function getActiveLinkToken(
   token: Tkn,
-  url: string
+  url: URL
 ): Tokens.Link | undefined {
   return find(
     token,
