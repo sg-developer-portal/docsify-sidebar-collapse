@@ -45,16 +45,15 @@ export default function RootListItem({
 
   const linkToken = getLinkToken(textToken);
 
-  const _ha = (url: string, token: Tokens.List) =>
-    getActiveLinkToken(token, url);
-  const _ia = (url: string, token?: Tokens.Link) =>
+  const _ha = (url: URL, token: Tokens.List) => getActiveLinkToken(token, url);
+  const _ia = (url: URL, token?: Tokens.Link) =>
     (token && isActiveLinkToken(token, url)) || false;
 
   const [hasActive, setHasActive] = useState(
-    _ha(window.location.href, listToken)
+    _ha(new URL(window.location.href), listToken)
   );
   const [isActive, setIsActive] = useState(
-    _ia(window.location.href, linkToken)
+    _ia(new URL(window.location.href), linkToken)
   );
   const [show, setShow] = useState(hasActive || isActive);
   const toggleShow = () => setShow((prev) => !prev);
@@ -72,7 +71,7 @@ export default function RootListItem({
       className={clsx(
         "node",
         hasActive && "has-active",
-        isActive && "active",
+        isActive && "is-active",
         className
       )}
       {...props}

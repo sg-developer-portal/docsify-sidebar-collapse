@@ -29,10 +29,10 @@ export default function LeafListItem({
 
   const linkToken = getLinkToken(textToken);
 
-  const _isActive = (url: string, token?: Tokens.Link) =>
+  const _isActive = (url: URL, token?: Tokens.Link) =>
     token && isActiveLinkToken(token, url);
   const [isActive, setIsActive] = useState(
-    _isActive(window.location.href, linkToken)
+    _isActive(new URL(window.location.href), linkToken)
   );
 
   useHistory((url) => {
@@ -40,7 +40,7 @@ export default function LeafListItem({
   });
 
   return (
-    <li className={clsx("node", isActive && "active", className)} {...props}>
+    <li className={clsx("node", isActive && "is-active", className)} {...props}>
       <div className="head">
         {linkToken ? (
           <Link className="text link" token={linkToken} />

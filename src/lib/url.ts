@@ -1,12 +1,12 @@
 import { Tokens } from "marked";
 
-export function isActiveLinkToken(token: Tokens.Link, url: string): boolean {
+export function isActiveLinkToken(token: Tokens.Link, url: URL): boolean {
   const href = token.href
     .replace("../", "/")
     .replace("./", "/")
     .replace(".md", "");
 
-  return url.endsWith(href);
+  return url.pathname.endsWith(href);
 }
 
 export function parseUrl(href: string, basePath: string): string {

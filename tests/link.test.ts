@@ -5,7 +5,8 @@
 
 import { describe, test, expect } from "@jest/globals";
 
-import { parseUrl } from "../src/lib/url";
+import { parseUrl, isActiveLinkToken } from "../src/lib/url";
+import { Tokens } from "marked";
 
 const basePath = "/docs/slug/";
 
@@ -40,5 +41,19 @@ describe("link unit tests", () => {
 
       expect(parsedUrl).toBe(resolvedUrl);
     }
+  });
+
+  test("detects if link is active correctly", () => {
+    // link with query
+    isActiveLinkToken(
+      { href: "/product/document" } as Tokens.Link,
+      "https://website.com/docs/product/document?id=header"
+    );
+
+    // link with hash
+    isActiveLinkToken(
+      { href: "/product/document" } as Tokens.Link,
+      "https://website.com/docs/product/document#header"
+    );
   });
 });
