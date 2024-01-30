@@ -32,5 +32,13 @@ export function parseUrl(href: string, basePath: string): string {
 }
 
 export function isExternalURL(url: URL): boolean {
-  return url.origin !== window.location.origin;
+  const regex = /\/docs\/([\w\d-]+)/;
+
+  const originPathname = regex.exec(url.pathname);
+  const nextPathname = regex.exec(window.location.pathname);
+  const diffDocument = originPathname?.at(1) !== nextPathname?.at(1);
+
+  const diffOrigin = url.origin !== window.location.origin;
+
+  return diffDocument || diffOrigin;
 }
