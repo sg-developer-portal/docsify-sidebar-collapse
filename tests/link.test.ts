@@ -47,13 +47,13 @@ describe("link unit tests", () => {
     // link with query
     isActiveLinkToken(
       { href: "/product/document" } as Tokens.Link,
-      "https://website.com/docs/product/document?id=header"
+      new URL("https://website.com/docs/product/document?id=header")
     );
 
     // link with hash
     isActiveLinkToken(
       { href: "/product/document" } as Tokens.Link,
-      "https://website.com/docs/product/document#header"
+      new URL("https://website.com/docs/product/document#header")
     );
   });
 });

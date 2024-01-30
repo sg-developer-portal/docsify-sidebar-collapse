@@ -19,10 +19,14 @@ export default function Link({ token, ...props }: LinkProps) {
     ));
   }
 
-  const href = useMemo(
-    () => parseUrl(token.href, basePath),
-    [token.href, basePath]
-  );
+  const href = useMemo(() => {
+    const isExternal = /^https?:\/\//.test(token.href);
+    if (isExternal) {
+      return token.href;
+    } else {
+      return parseUrl(token.href, basePath);
+    }
+  }, [token.href, basePath]);
 
   if (href === null) {
     console.error("improperly formatted href:", token.href);

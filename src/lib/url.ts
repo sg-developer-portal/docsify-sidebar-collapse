@@ -30,3 +30,8 @@ export function parseUrl(href: string, basePath: string): string {
 
   return resolvedURL.pathname;
 }
+
+export function isExternalURL(url: URL | string): boolean {
+  const regex = /^https?:\/\//;
+  return regex.test(url.toString());
+}
