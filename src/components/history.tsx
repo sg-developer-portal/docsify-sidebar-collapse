@@ -13,7 +13,7 @@ export default function History({ children }: HistoryProps) {
     if (typeof url !== "string") return;
 
     // Check if url is external or internal
-    if (isExternalURL(url)) {
+    if (isExternalURL(new URL(url))) {
       window.open(url, "_blank")?.focus();
     } else {
       pushState.apply(history, args);
