@@ -22,7 +22,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "fbuild": "npm run build && rm -rf ../doc-portal/public/dist/sidebar/* && cp -r ./dist/* ../doc-portal/public/dist/sidebar",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "clsx": "^2.0.0",
@@ -33,6 +34,7 @@
     "@jest/globals": "^29.7.0",
     "@preact/preset-vite": "^2.5.0",
     "@rollup/plugin-image": "^3.0.3",
+    "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "sass": "^1.69.5",

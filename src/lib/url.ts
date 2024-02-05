@@ -6,7 +6,9 @@ export function isActiveLinkToken(token: Tokens.Link, url: URL): boolean {
     .replace("./", "/")
     .replace(".md", "");
 
-  return url.pathname.endsWith(href);
+  const docsPath = href.startsWith("/") ? href : `/${href}`;
+
+  return url.pathname.endsWith(docsPath);
 }
 
 export function parseUrl(href: string, basePath: string): string {
