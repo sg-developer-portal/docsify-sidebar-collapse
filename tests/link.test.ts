@@ -45,7 +45,7 @@ describe("link unit tests", () => {
     }
   });
 
-  test("detects if link is active correctly for _sidebard1.md", () => {
+  test("detects if link is active correctly for _sidebard1.md upcoming-maintenance.md", () => {
     const lexer = new Lexer();
     const markdown = fs.readFileSync("tests/fixtures/_sidebar1.md", "utf-8");
     const tokens = lexer.lex(markdown);
@@ -56,6 +56,47 @@ describe("link unit tests", () => {
       " https://docs.developer.tech.gov.sg/docs/cft-support-and-maintenance/upcoming-maintenance";
 
     const expectedActiveHref = "upcoming-maintenance.md";
+    let resultActiveHref;
+    let hasMoreThanOneActiveLink = false;
+
+    for (const list of listItems) {
+      if (list.type === "list") {
+        for (const item of list.items) {
+          if (item.type === "list_item") {
+            for (const token of item.tokens) {
+              if (token.type === "text" && token.tokens) {
+                for (const tokentoken of token.tokens) {
+                  if (
+                    tokentoken.type === "link" &&
+                    isActiveLinkToken(tokentoken, new URL(url))
+                  ) {
+                    if (resultActiveHref) {
+                      hasMoreThanOneActiveLink = true;
+                    }
+                    resultActiveHref = tokentoken.href;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    expect(resultActiveHref).toBe(expectedActiveHref);
+    expect(hasMoreThanOneActiveLink).toBe(false);
+  });
+
+  test("detects if link is active correctly for _sidebard1.md maintenance.md", () => {
+    const lexer = new Lexer();
+    const markdown = fs.readFileSync("tests/fixtures/_sidebar1.md", "utf-8");
+    const tokens = lexer.lex(markdown);
+    const listItems = tokens.filter((token) => {
+      return token.type === "list" || token.type === "list_item";
+    });
+    const url =
+      " https://docs.developer.tech.gov.sg/docs/cft-support-and-maintenance/maintenance";
+
+    const expectedActiveHref = "maintenance.md";
     let resultActiveHref;
     let hasMoreThanOneActiveLink = false;
 
