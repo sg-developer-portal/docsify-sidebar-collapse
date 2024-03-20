@@ -1,6 +1,6 @@
-import { defineConfig } from "semantic-release";
+import 'semantic-release'
 
-export default defineConfig({
+module.exports = {
     branches: ['fix-hide-sidebar'], // Set the branch you want to release from
     plugins: [
       '@semantic-release/commit-analyzer', // Analyzes commit messages to determine the release type
@@ -15,4 +15,4 @@ export default defineConfig({
         },
       ],
     ],
-  });
+  };
