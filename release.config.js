@@ -1,4 +1,6 @@
-module.exports = {
+const { defineConfig } = require("semantic-release")
+
+module.exports = defineConfig({
     branches: ['fix-hide-sidebar'], // Set the branch you want to release from
     plugins: [
       '@semantic-release/commit-analyzer', // Analyzes commit messages to determine the release type
@@ -13,4 +15,4 @@ module.exports = {
         },
       ],
     ],
-  };
+  });
