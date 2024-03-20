@@ -28,11 +28,10 @@ window.$docsify = {
   nameLink: "/docs/slug",
 };
 ```
-
 ## Publishing
 
-1. Ensure you're inside the correct organisation
-2. Update package.json version if needed
-3. Build the artifacts with `npm run build`
-4. Publish the artifacts with `npm publish --access public`
-5. Complete OTP flow
+### GitHub
+If semantic release fails during GitHub Actions, please ensure that the **GH_TOKEN** provided is valid and contains the correct permissions. Members of the repo can consider updating the token under secrets of the project if the existing token is lost. The Perosnal Access Token can be created under member's personal setting and a **repo** scope is needed for the release to run.
+
+### NPM
+If publishing fails during GitHub Actions, please ensure that the **NPM_TOKEN** provided is valid and contains the correct permissions. Member of the repo (on GitHub and NPM) can consider updating the secrets of the project if the existing token is lost. 
