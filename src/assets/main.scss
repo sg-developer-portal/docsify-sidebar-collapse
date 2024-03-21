@@ -82,7 +82,7 @@ $active-node-color: #0076d6;
     }
     
     .node.has-active > .head > .text {
-        a > span, span {
+        strong, span {
             color: $active-node-color;
         }
     }
@@ -90,7 +90,7 @@ $active-node-color: #0076d6;
     .node.is-active > .head {
         background-color: $active-node-background-color;
         .text { 
-            a > span, span {
+            strong, span {
                 color: $active-node-color;
             }
         }

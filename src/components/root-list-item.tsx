@@ -45,7 +45,8 @@ export default function RootListItem({
 
   const linkToken = getLinkToken(textToken);
 
-  const _ha = (url: URL, token: Tokens.List) => getActiveLinkToken(token, url);
+  const _ha = (url: URL, token: Tokens.List) =>
+    getActiveLinkToken(token, url) !== undefined;
   const _ia = (url: URL, token?: Tokens.Link) =>
     (token && isActiveLinkToken(token, url)) || false;
 
@@ -63,7 +64,9 @@ export default function RootListItem({
     const ia = _ia(url, linkToken);
     setHasActive(ha);
     setIsActive(ia);
-    setShow(ha || ia);
+    if (!(ha || ia)) {
+      setShow(ha || ia);
+    }
   });
 
   return (
