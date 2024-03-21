@@ -3,7 +3,7 @@ name: Publish to NPM with Semantic Release
 on:
   push:
     branches:
-      - fix-hide-sidebar
+      - main
 
 jobs:
   release:
