@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "fbuild": "npm run build && rm -rf ../doc-portal/public/dist/sidebar/* && cp -r ./dist/* ../doc-portal/public/dist/sidebar",
+    "fbuild": "npm run build && rm -rf ../doc-portal/public/dist/sidebar/* && mkdir -p ../doc-portal/public/dist/sidebar && cp -r ./dist/* ../doc-portal/public/dist/sidebar",
     "preview": "vite preview --host",
     "test": "jest"
   },
