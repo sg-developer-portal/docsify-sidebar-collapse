@@ -104,11 +104,11 @@ export default function RootListItem({
             alt="chevron"
             width={16}
             height={16}
-            className={clsx("chevron-icon", show && "show")}
+            className={clsx("chevron-icon", (hasActive || show) && "show")}
           />
         </div>
       </div>
-      <div className={clsx("children", show && "show")}>
+      <div className={clsx("children", (hasActive || show) && "show")}>
         <List token={listToken} />
       </div>
     </li>
