@@ -1,3 +1,10 @@
+## [2.0.26](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.0.25...v2.0.26) (2024-04-24)
+
+
+### Bug Fixes
+
+* **npm publishing:** npm publishing ([7815df9](https://github.com/sg-developer-portal/docsify-sidebar-collapse/commit/7815df9a93015affc830c1fe378fffcb4b2ce07e))
+
 ## [2.0.23](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.0.22...v2.0.23) (2024-03-21)
 
 
