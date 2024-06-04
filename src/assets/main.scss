@@ -3,6 +3,7 @@ $transition-style: cubic-bezier(0.08,0.52,0.52,1);
 $active-node-background-color: rgba($color: #000000, $alpha: .1);
 $active-node-color: #0076d6;
 
+//Note that we overrided the defauly sidebar width from 272px to 320px
 :root {
     --sidebar-width : 320px;
     --sidebar-padding: 0 16px;
