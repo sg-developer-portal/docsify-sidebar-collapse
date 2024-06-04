@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.1.0...v2.2.0) (2024-06-04)
+
+
+### Features
+
+* add class to prop so styles apply ([2bed41e](https://github.com/sg-developer-portal/docsify-sidebar-collapse/commit/2bed41e865aea8c05ae1947135992fef3abe7d82))
+
 # [2.1.0](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.0.26...v2.1.0) (2024-06-04)
 
 
