@@ -3,6 +3,11 @@ $transition-style: cubic-bezier(0.08,0.52,0.52,1);
 $active-node-background-color: rgba($color: #000000, $alpha: .1);
 $active-node-color: #0076d6;
 
+:root {
+    --sidebar-width : 320px;
+    --sidebar-padding: 0 16px;
+  }
+
 .enhanced-sidebar, #enhanced-sidebar {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -20,7 +25,7 @@ $active-node-color: #0076d6;
     .children {
         display: grid;
         grid-template-rows: 0fr;
-        margin-left: .5rem;
+        margin-left: 1.25rem;
         transition: grid-template-rows $transition-duration $transition-style
     }
     
@@ -40,18 +45,21 @@ $active-node-color: #0076d6;
         width: 100%;
         display: flex;
         overflow:hidden;
-        > * {
+        padding: .5rem .75rem;
+        > .title {
             flex-grow: 1;
-            display: block;
-            padding: .5rem .75rem;
+            display: -webkit-box;
             overflow:hidden;
             text-overflow: ellipsis;
-            white-space: nowrap;
+            overflow-wrap: break-word;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            position: relative;
         }
     } 
-    
+
     .chevron {
-        padding: .5rem 1.25rem;
+        padding: .5rem .5rem;
         border-radius: .25rem;
         display: flex;
         justify-items: center;
