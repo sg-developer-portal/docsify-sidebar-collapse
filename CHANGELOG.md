@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.0.26...v2.1.0) (2024-06-04)
+
+
+### Features
+
+* Add comment, trigger pipeline ([e6bd9cf](https://github.com/sg-developer-portal/docsify-sidebar-collapse/commit/e6bd9cf60e623685f77630668b3c3c2566aea8a0))
+
 ## [2.0.26](https://github.com/sg-developer-portal/docsify-sidebar-collapse/compare/v2.0.25...v2.0.26) (2024-04-24)
 
 
