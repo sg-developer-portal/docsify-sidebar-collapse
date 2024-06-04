@@ -16,5 +16,9 @@ export default function Text({ token, ...props }: TextProps) {
   if (token.raw === "&nbsp;") {
     return <>&nbsp;</>;
   }
-  return <span {...props}>{el || token.raw}</span>;
+  return (
+    <span class="title" {...props}>
+      {el || token.raw}
+    </span>
+  );
 }
